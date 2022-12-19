@@ -10,21 +10,16 @@ function fetchDrinks(){
 }
 
 function loadDrinks(drinks){
-    let menu = document.getElementById("drink-menu");
+    const drinkMenu = document.getElementById('drink-menu');
     drinks.forEach(drink=> {
         console.log(drink);
+        let drinkCard = document.createElement('div');
+        drinkCard.setAttribute('class', 'card');
         let drinkPic = document.createElement('img');
         drinkPic.src = drink.image;
         drinkPic.setAttribute('class', 'drink-imgs')
-        let drinkSpot = document.createElement('td');
-        drinkSpot.appendChild(drinkPic);
-        drinkSpot.addEventListener('mouseover',()=>{
-            let drinkName = document.createElement('h3');
-            drinkName.innerHTML = drink.name;
-            drinkName.setAttribute('class','drink-names');
-            drinkSpot.appendChild(drinkName);
-        })
-        menu.appendChild(drinkSpot);
+        drinkCard.appendChild(drinkPic);
+        drinkMenu.appendChild(drinkCard);
     });
 }
 
@@ -33,9 +28,11 @@ function createDrinks(){
     const drinkIntroForm = document.getElementById('add-drink-intro-form');
     const drinkIngredientsForm = document.getElementById('add-drink-ingredients-form');
     const drinkInstructionsForm = document.getElementById('add-drink-instructions-form');
+    const wantMoreDrinksHeader = document.getElementById('want-more-drinks');
     addDrinksButton.addEventListener('click', ()=>{
         drinkIntroForm.removeAttribute('hidden');
         addDrinksButton.setAttribute('hidden', true);
+        wantMoreDrinksHeader.setAttribute('hidden', true);
     })
     drinkIntroForm.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -52,6 +49,7 @@ function createDrinks(){
         drinkIngredientsForm.setAttribute('hidden', true);
         drinkInstructionsForm.setAttribute('hidden', true)
         addDrinksButton.removeAttribute('hidden');
+        wantMoreDrinksHeader.removeAttribute('hidden');
         alert('Great! Your drink has been added!');
     })
 }
