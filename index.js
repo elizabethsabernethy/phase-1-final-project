@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     fetchDrinks();
-    createDrinks();
 })
 
 function fetchDrinks(){
@@ -16,7 +15,14 @@ function loadDrinks(drinks){
     let displayMenu = document.getElementById('display-menu');
 
     drinks.forEach(drink=> {
-        let drinkCard = document.createElement('div');
+        makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu);
+    });
+    createDrinks(drinkMenu, sideMenu, drinkDisplay, displayMenu);
+}
+
+
+function makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu){
+    let drinkCard = document.createElement('div');
         drinkCard.setAttribute('class', 'card');
 
         let drinkName = document.createElement('h2');
@@ -54,16 +60,15 @@ function loadDrinks(drinks){
             createSideMenu(sideMenu, displayMenu);
             createDrinkDisplay(drinkDisplay, displayMenu, drink);
         })
-
-    });
 }
 
-function createDrinks(){
+function createDrinks(drinkMenu, sideMenu, drinkDisplay, displayMenu){
     const addDrinksButton = document.getElementById("new-drink-btn");
     const drinkIntroForm = document.getElementById('add-drink-intro-form');
     const drinkIngredientsForm = document.getElementById('add-drink-ingredients-form');
     const drinkInstructionsForm = document.getElementById('add-drink-instructions-form');
     const wantMoreDrinksHeader = document.getElementById('want-more-drinks');
+
     addDrinksButton.addEventListener('click', ()=>{
         drinkIntroForm.removeAttribute('hidden');
         addDrinksButton.setAttribute('hidden', true);
@@ -77,7 +82,18 @@ function createDrinks(){
     drinkIngredientsForm.addEventListener('submit',(e)=>{
         e.preventDefault();
         drinkIngredientsForm.setAttribute('hidden', true);
-        drinkInstructionsForm.removeAttribute('hidden');
+        if(document.getElementById('yes-mocktail').checked){
+           let mockForm = document.getElementById('add-mocktail-form');
+           mockForm.removeAttribute('hidden');
+           mockForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            mockForm.setAttribute('hidden', true);
+            drinkInstructionsForm.removeAttribute('hidden');
+           })
+        }
+        else if(document.getElementById('no-mocktail').checked){
+            drinkInstructionsForm.removeAttribute('hidden');
+        }
     })
     drinkInstructionsForm.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -85,6 +101,7 @@ function createDrinks(){
         drinkInstructionsForm.setAttribute('hidden', true)
         addDrinksButton.removeAttribute('hidden');
         wantMoreDrinksHeader.removeAttribute('hidden');
+        addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm, drinkIngredientsForm, drinkInstructionsForm);
         alert('Great! Your drink has been added!');
     })
 }
@@ -135,14 +152,56 @@ function createDrinkDisplay(drinkDisplay, displayMenu, drink){
         instructionList.append(stepItem);
     })
 
-    let likeButton = document.createElement('button');
-    likeButton.innerHTML = 'Favorite';
-    likeButton.setAttribute('class', 'opinion-button');
+    let mocktailButton = document.createElement('button');
+    mocktailButton.innerHTML = 'Mocktail Version';
+    mocktailButton.setAttribute('class', 'opinion-button');
+    mocktailButton.addEventListener('click', ()=>{
+        drinkDisplay.textContent='';
+        mocktailSelector(drinkDisplay);
+    })
 
-    let dislikeButton = document.createElement('button');
-    dislikeButton.innerHTML = 'Not a Fan';
-    dislikeButton.setAttribute('class', 'opinion-button');
+    drinkDisplay.append(mocktailButton);
+}
 
-    drinkDisplay.append(likeButton, dislikeButton);
+function addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm, drinkIngredientsForm, drinkInstructionsForm){
+    let newDrink;
+    let newName = document.querySelector('[name="name"]').value;
+    let newPic = document.querySelector('[name="image"]').value;
+    let yesMockatail = document.getElementById('yes-mocktail');
+    let noMocktail = document.getElementById('no-mocktail');
+    let mocktailablity;
+    if(yesMockatail.checked){
+        mocktailablity = yesMockatail.value;
+    }
+    else if(noMocktail.checked){
+        mocktailablity = noMocktail.value;
+    }
+    let ingredient1 = document.querySelector('[name="ingredient-1"]').value;
+    let ingredient2 = document.querySelector('[name="ingredient-2"]').value;
+    let ingredient3 = document.querySelector('[name="ingredient-3"]').value;
+    let ingredient4 = document.querySelector('[name="ingredient-4"]').value;
+    let ingredient5 = document.querySelector('[name="ingredient-5"]').value;
+    let ingredient6 = document.querySelector('[name="ingredient-6"]').value;
+    let step1 = document.querySelector('[name="instruction-1"]').value;
+    let step2 = document.querySelector('[name="instruction-2"]').value;
+    let step3 = document.querySelector('[name="instruction-3"]').value;
+    let step4 = document.querySelector('[name="instruction-4"]').value;
+    let step5 = document.querySelector('[name="instruction-5"]').value;
 
+    fetch('http://localhost:3000/drinks', {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'Accept':'application/json'
+        },
+        body: JSON.stringify(newDrink)
+    })
+    .then(resp => resp.json())
+    .then(newDrink => makeADrink(newDrink, drinkMenu, sideMenu, drinkDisplay, displayMenu))
+}
+
+function mocktailSelector(drinkDisplay){
+    // Add icon to show whetehr mocktail compatible
+    // Add button to reveal mocktail alternative... i.e. replace alcohol with subsitutue?
+    //'TRY this instead type thing
 }

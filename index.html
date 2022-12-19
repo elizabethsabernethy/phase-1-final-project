@@ -64,13 +64,14 @@
         value=""
         placeholder="First ingredient"
         class="input-text"
+        required
       />
       <br />
       <input
         type="text"
         name="ingredient-2"
         value=""
-        placeholder="Second ingredient"
+        placeholder="Second ingredient (optional)"
         class="input-text"
       />
       <br />
@@ -78,7 +79,7 @@
         type="text"
         name="ingredient-3"
         value=""
-        placeholder="Third ingredient"
+        placeholder="Third ingredient (optional)"
         class="input-text"
       />
       <br />
@@ -86,7 +87,7 @@
         type="text"
         name="ingredient-4"
         value=""
-        placeholder="Fourth ingredient"
+        placeholder="Fourth ingredient (optional)"
         class="input-text"
       />
       <br />
@@ -94,7 +95,7 @@
         type="text"
         name="ingredient-5"
         value=""
-        placeholder="Fifth ingredient"
+        placeholder="Fifth ingredient (optional)"
         class="input-text"
       />
       <br />
@@ -102,7 +103,7 @@
         type="text"
         name="ingredient-6"
         value=""
-        placeholder="Sixth ingredient"
+        placeholder="Sixth ingredient (optional)"
         class="input-text"
       />
       <br />
@@ -113,6 +114,39 @@
         class="submit"
       />
     </form>
+    <form hidden id="add-mocktail-form" class="add-drink-form">
+      <h4>Add alternative (non-alcoholic) ingredients for drink</h4>
+      <input
+          type="text"
+          name="mocktail-ingredient-1"
+          value=""
+          placeholder="First non-alcoholic alternative "
+          class="input-text"
+        />
+        <br />
+        <input
+          type="text"
+          name="mocktail-ingredient-1"
+          value=""
+          placeholder="Second non-alcoholic alternative (optional)"
+          class="input-text"
+        />
+        <br />
+        <input
+          type="text"
+          name="mocktail-ingredient-3"
+          value=""
+          placeholder="Third non-alcoholic alternative (optional)"
+          class="input-text"
+        />
+        <br />
+        <input
+          type="submit"
+          name="submit"
+          value="Next"
+          class="submit"
+        />
+    </form>
     <form hidden id="add-drink-instructions-form" class="add-drink-form">
       <h4>Add steps to make drink</h4>
       <input
@@ -121,13 +155,14 @@
         value=""
         placeholder="First Step"
         class="input-text"
+        required
       />
       <br />
       <input
         type="text"
         name="instruction-2"
         value=""
-        placeholder="Second Step"
+        placeholder="Second Step (optional)"
         class="input-text"
       />
       <br />
@@ -135,7 +170,7 @@
         type="text"
         name="instruction-3"
         value=""
-        placeholder="Third Step"
+        placeholder="Third Step (optional)"
         class="input-text"
       />
       <br />
@@ -143,7 +178,7 @@
         type="text"
         name="instruction-4"
         value=""
-        placeholder="Fourth Step"
+        placeholder="Fourth Step (optional)"
         class="input-text"
       />
       <br />
@@ -151,7 +186,7 @@
         type="text"
         name="instruction-5"
         value=""
-        placeholder="Fifth Step"
+        placeholder="Fifth Step (optional)"
         class="input-text"
       />
       <br />
