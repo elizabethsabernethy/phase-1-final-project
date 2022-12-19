@@ -2,6 +2,7 @@ body{
    background-color: rgb(215, 156, 60);
    color:aliceblue;
    font-family: Georgia, 'Times New Roman', Times, serif;
+   justify-content: center;
 }
 
 #top-page-header{
@@ -32,19 +33,30 @@ body{
     text-align: center;
     vertical-align: center;
     border: rgb(255, 255, 255) solid 5px;
-    padding: 1rem;
     width: 15rem;
     height: 15rem;
     display: inline-grid;
     margin: 5px;
+    padding: 3px;
+  }
+
+  .card:hover {
+    background-color:rgb(38, 38, 38);
+  }
+
+  .drink-imgs:hover {
+    opacity: 0.5;
   }
 
   #drink-menu {
-    margin: 2rem;
+    margin: auto;
+    padding: 3rem;
+    justify-content: center;
   }
 
   .container{
     text-align: center;
+    justify-content: center;
   }
 
   .button {
