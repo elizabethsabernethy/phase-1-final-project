@@ -89,6 +89,7 @@ body{
     color: aliceblue;
     background-color: rgb(38, 38, 38);
     font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }  
 
   label {
@@ -112,21 +113,25 @@ body{
     color:rgb(38, 38, 38);
   }
 
-  #drink-side-menu{
+  #drink-side-menu {
     display: inline-block;
     vertical-align: middle;
   }
 
-  #drink-display{
+  #drink-display {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: center;
+    text-align: center;
+    margin: auto;
+    color: rgb(38, 38, 38);
   }
 
-  li{
-    font-size: larger;
+  li {
+    font-size: large;
     color: rgb(38, 38, 38);
     padding:5px;
-    font-weight: bold;
+    text-align: left;
+    max-width: 25rem;
   }
 
   #side-menu tr{
@@ -137,10 +142,37 @@ body{
   #side-menu {
     border-collapse: separate;
     border-spacing: 2rem;
+    position: absolute;
   }
 
   #menu-header {
     color: rgb(38, 38, 38);
     font-weight: bolder;
+  }
+
+  #display-menu{
+    display: flex;
+  }
+
+  .display-imgs {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .display-name{
+    font-size: 25rem;
+  }
+
+  .opinion-button {
+    border-radius:5px;
+    width:8rem;
+    height:2rem;
+    color: aliceblue;
+    background-color: rgb(38, 38, 38);
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 2px;
+    margin-right: 2px;
+    border: 0;
   }
 
