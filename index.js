@@ -153,14 +153,29 @@ function createDrinkDisplay(drinkDisplay, displayMenu, drink){
     })
 
     let mocktailButton = document.createElement('button');
-    mocktailButton.innerHTML = 'Mocktail Version';
+    let mockDiv = document.createElement('div');
+    let hideMockButton = document.createElement('button');
+    hideMockButton.setAttribute('class', 'opinion-button');
+    hideMockButton.innerHTML = 'Hide Mocktail Subsitutes';
+    mockDiv.setAttribute('id', 'mock-div');
+    mocktailButton.innerHTML = 'Mocktail Subsitutes';
     mocktailButton.setAttribute('class', 'opinion-button');
     mocktailButton.addEventListener('click', ()=>{
-        drinkDisplay.textContent='';
-        mocktailSelector(drinkDisplay);
-    })
-
-    drinkDisplay.append(mocktailButton);
+        let mockHeader = document.createElement('h4');
+        mockHeader.innerHTML = "Replace the alcohol in the orginial recipe with the alternative(s) below"
+        mockDiv.append(mockHeader);
+        mocktailSelector(drink, drinkDisplay, mockDiv);
+        mocktailButton.setAttribute('disabled', true);
+        mockDiv.append(hideMockButton);
+        })
+        hideMockButton.addEventListener('click', ()=>{
+            mockDiv.textContent='';
+            mocktailButton.removeAttribute('disabled');
+        })
+        mocktailButton.removeAttribute('disabled');
+        if(drink.mocktail){
+        drinkDisplay.append(mocktailButton);
+        }
 }
 
 function addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm, drinkIngredientsForm, drinkInstructionsForm){
@@ -200,8 +215,12 @@ function addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm
     .then(newDrink => makeADrink(newDrink, drinkMenu, sideMenu, drinkDisplay, displayMenu))
 }
 
-function mocktailSelector(drinkDisplay){
-    // Add icon to show whetehr mocktail compatible
-    // Add button to reveal mocktail alternative... i.e. replace alcohol with subsitutue?
-    //'TRY this instead type thing
+function mocktailSelector(drink, drinkDisplay, mockDiv){
+    let mockIngredients = Object.values(drink.mocktail);
+    mockIngredients.forEach(mockIngredient => {
+        let ingredientItem = document.createElement('li');
+        ingredientItem.innerHTML = mockIngredient;
+        mockDiv.append(ingredientItem);
+        drinkDisplay.append(mockDiv);
+    })
 }
