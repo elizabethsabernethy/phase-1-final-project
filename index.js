@@ -104,7 +104,7 @@ function createDrinks(drinks, drinkMenu, sideMenu, drinkDisplay, displayMenu){
         drinkInstructionsForm.setAttribute('hidden', true)
         addDrinksButton.removeAttribute('hidden');
         wantMoreDrinksHeader.removeAttribute('hidden');
-        addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm, drinkIngredientsForm, drinkInstructionsForm);
+        addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu);
         alert('Great! Your drink has been added!');
         loadDrinks(drinks);
     })
@@ -242,7 +242,9 @@ function addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu){
         body: JSON.stringify(newDrink)
     })
     .then(resp => resp.json())
-    .then(newDrink => makeADrink(newDrink, drinkMenu, sideMenu, drinkDisplay, displayMenu))
+    .then(newDrink => {
+        loadNewDrink(drinkDisplay,displayMenu, newDrink);
+    })
 }
 
 function mocktailSelector(drink, drinkDisplay, mockDiv){
@@ -253,4 +255,9 @@ function mocktailSelector(drink, drinkDisplay, mockDiv){
         mockDiv.append(ingredientItem);
         drinkDisplay.append(mockDiv);
     })
+}
+
+function loadNewDrink(drinkDisplay,displayMenu, newDrink){
+    createDrinkDisplay(drinkDisplay,displayMenu, newDrink);
+    displayMenu.textContent='';
 }
