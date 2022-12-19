@@ -11,8 +11,8 @@ function fetchDrinks(){
 
 function loadDrinks(drinks){
     const drinkMenu = document.getElementById('drink-menu');
+
     drinks.forEach(drink=> {
-        console.log(drink);
         let drinkCard = document.createElement('div');
         drinkCard.setAttribute('class', 'card');
 
@@ -29,6 +29,14 @@ function loadDrinks(drinks){
         drinkCard.appendChild(drinkName);
         drinkMenu.appendChild(drinkCard);
 
+        let displayName = document.createElement('h1');
+        displayName.innerHTML = drink.name;
+        displayName.setAttribute('class', 'display-names');
+
+        let displayPic = document.createElement('img');
+        displayPic.src = drink.image;
+        displayPic.setAttribute('class', 'display-imgs');
+
         drinkCard.addEventListener('mouseenter', ()=>{
             drinkName.removeAttribute('hidden');
             drinkPic.style.opacity = 0.5;
@@ -39,7 +47,6 @@ function loadDrinks(drinks){
         })
         drinkCard.addEventListener('click', ()=>{
             drinkMenu.textContent="";
-            drinkMenu.appendChild(drinkCard);
         })
 
     });
