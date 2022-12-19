@@ -19,7 +19,7 @@
     <button id="new-drink-btn" class="button">Add a new drink!</button>
 
     <form hidden id="add-drink-intro-form" class="add-drink-form">
-      <h4>What drink do you want to add?</h4>
+      <h3>What drink do you want to add?</h3>
       <input
         type="text"
         name="name"
@@ -37,6 +37,17 @@
         class="input-text"
         required
       />
+      <br />
+      <h4>Is the drink mocktailable?</h4>
+      <label>
+        <input type="radio" id="yes-mocktail" name="mocktail" value="Yes">
+          Yes
+      </label>
+      <br />
+      <label>
+        <input type="radio" id="no-mocktail" name="mocktail" value="No">
+          No
+      </label>
       <br />
       <input
       type="submit"

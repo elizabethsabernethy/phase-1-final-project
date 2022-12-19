@@ -72,29 +72,38 @@ body{
   }
 
   input[type=text]{
-    text-align: center;
     width:25rem;
     height:2rem;
     background-color: aliceblue;
     color: rgb(38, 38, 38);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 5px;
-    border: 0;
   }
 
   input[type=submit]{
-    text-align: center;
     width:10rem;
     height:2rem;
     color: aliceblue;
     background-color: rgb(38, 38, 38);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+  }  
+
+  label {
+    color:rgb(38, 38, 38);
+    font-weight: bold;
+  }
+
+  input {
+    text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 5px;
     border: 0;
-  }  
+  }
 
-  form h4 {
+  form h4{
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  form {
     color:rgb(38, 38, 38);
   }
+
