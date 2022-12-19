@@ -15,11 +15,33 @@ function loadDrinks(drinks){
         console.log(drink);
         let drinkCard = document.createElement('div');
         drinkCard.setAttribute('class', 'card');
+
+        let drinkName = document.createElement('h2');
+        drinkName.setAttribute('hidden', true);
+        drinkName.setAttribute('class', 'drink-name');
+        drinkName.innerHTML = drink.name;
+
         let drinkPic = document.createElement('img');
         drinkPic.src = drink.image;
         drinkPic.setAttribute('class', 'drink-imgs')
+
         drinkCard.appendChild(drinkPic);
+        drinkCard.appendChild(drinkName);
         drinkMenu.appendChild(drinkCard);
+
+        drinkCard.addEventListener('mouseenter', ()=>{
+            drinkName.removeAttribute('hidden');
+            drinkPic.style.opacity = 0.5;
+        })
+        drinkCard.addEventListener('mouseleave', ()=>{
+            drinkName.setAttribute('hidden', true);
+            drinkPic.style.opacity = 1;
+        })
+        drinkCard.addEventListener('click', ()=>{
+            drinkMenu.textContent="";
+            drinkMenu.appendChild(drinkCard);
+        })
+
     });
 }
 
