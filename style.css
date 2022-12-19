@@ -129,3 +129,18 @@ body{
     font-weight: bold;
   }
 
+  #side-menu tr{
+    text-align: left;
+    font-size: larger;
+  }
+
+  #side-menu {
+    border-collapse: separate;
+    border-spacing: 2rem;
+  }
+
+  #menu-header {
+    color: rgb(38, 38, 38);
+    font-weight: bolder;
+  }
+

@@ -10,7 +10,8 @@ function fetchDrinks(){
 }
 
 function loadDrinks(drinks){
-    const drinkMenu = document.getElementById('drink-menu');
+    let drinkMenu = document.getElementById('drink-menu');
+    let sideMenu = document.createElement('table');
 
     drinks.forEach(drink=> {
         let drinkCard = document.createElement('div');
@@ -37,6 +38,11 @@ function loadDrinks(drinks){
         displayPic.src = drink.image;
         displayPic.setAttribute('class', 'display-imgs');
 
+        sideMenu.setAttribute('id', 'side-menu');
+        let sideMenuItem = document.createElement('tr');
+        sideMenuItem.innerHTML = drink.name;
+        sideMenu.appendChild(sideMenuItem);
+
         drinkCard.addEventListener('mouseenter', ()=>{
             drinkName.removeAttribute('hidden');
             drinkPic.style.opacity = 0.5;
@@ -47,6 +53,7 @@ function loadDrinks(drinks){
         })
         drinkCard.addEventListener('click', ()=>{
             drinkMenu.textContent="";
+            createSideMenu(sideMenu, drinkMenu);
         })
 
     });
@@ -81,4 +88,12 @@ function createDrinks(){
         wantMoreDrinksHeader.removeAttribute('hidden');
         alert('Great! Your drink has been added!');
     })
+}
+
+function createSideMenu(sideMenu, drinkMenu){
+    let menuHeader = document.createElement('tr');
+    menuHeader.innerHTML = "Drink Menu"
+    menuHeader.setAttribute('id', 'menu-header');
+    sideMenu.prepend(menuHeader);
+    drinkMenu.append(sideMenu);
 }
