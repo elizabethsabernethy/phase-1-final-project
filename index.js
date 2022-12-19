@@ -17,7 +17,7 @@ function loadDrinks(drinks){
     drinks.forEach(drink=> {
         makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu);
     });
-    createDrinks(drinkMenu, sideMenu, drinkDisplay, displayMenu);
+    createDrinks(drinks, drinkMenu, sideMenu, drinkDisplay, displayMenu);
 }
 
 
@@ -62,7 +62,7 @@ function makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu){
         })
 }
 
-function createDrinks(drinkMenu, sideMenu, drinkDisplay, displayMenu){
+function createDrinks(drinks, drinkMenu, sideMenu, drinkDisplay, displayMenu){
     const addDrinksButton = document.getElementById("new-drink-btn");
     const drinkIntroForm = document.getElementById('add-drink-intro-form');
     const drinkIngredientsForm = document.getElementById('add-drink-ingredients-form');
@@ -73,6 +73,8 @@ function createDrinks(drinkMenu, sideMenu, drinkDisplay, displayMenu){
         drinkIntroForm.removeAttribute('hidden');
         addDrinksButton.setAttribute('hidden', true);
         wantMoreDrinksHeader.setAttribute('hidden', true);
+        displayMenu.textContent='';
+        drinkMenu.textContent='';
     })
     drinkIntroForm.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -103,6 +105,7 @@ function createDrinks(drinkMenu, sideMenu, drinkDisplay, displayMenu){
         wantMoreDrinksHeader.removeAttribute('hidden');
         addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm, drinkIngredientsForm, drinkInstructionsForm);
         alert('Great! Your drink has been added!');
+        loadDrinks(drinks);
     })
 }
 
@@ -179,29 +182,30 @@ function createDrinkDisplay(drinkDisplay, displayMenu, drink){
 }
 
 function addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu, drinkIntroForm, drinkIngredientsForm, drinkInstructionsForm){
-    let newDrink;
-    let newName = document.querySelector('[name="name"]').value;
-    let newPic = document.querySelector('[name="image"]').value;
-    let yesMockatail = document.getElementById('yes-mocktail');
-    let noMocktail = document.getElementById('no-mocktail');
-    let mocktailablity;
-    if(yesMockatail.checked){
-        mocktailablity = yesMockatail.value;
-    }
-    else if(noMocktail.checked){
-        mocktailablity = noMocktail.value;
-    }
-    let ingredient1 = document.querySelector('[name="ingredient-1"]').value;
-    let ingredient2 = document.querySelector('[name="ingredient-2"]').value;
-    let ingredient3 = document.querySelector('[name="ingredient-3"]').value;
-    let ingredient4 = document.querySelector('[name="ingredient-4"]').value;
-    let ingredient5 = document.querySelector('[name="ingredient-5"]').value;
-    let ingredient6 = document.querySelector('[name="ingredient-6"]').value;
-    let step1 = document.querySelector('[name="instruction-1"]').value;
-    let step2 = document.querySelector('[name="instruction-2"]').value;
-    let step3 = document.querySelector('[name="instruction-3"]').value;
-    let step4 = document.querySelector('[name="instruction-4"]').value;
-    let step5 = document.querySelector('[name="instruction-5"]').value;
+    let newDrink = {
+        "name": document.querySelector('[name="name"]').value,
+      "image": document.querySelector('[name="image"]').value,
+      "recipe": {
+        "ingredients": {
+          "1": document.querySelector('[name="ingredient-1"]').value,
+          "2": document.querySelector('[name="ingredient-2"]').value,
+        },
+        "instructions": {
+          "Step 1": document.querySelector('[name="instruction-1"]').value,
+          "Step 2": document.querySelector('[name="instruction-2"]').value,
+        }
+      }
+    };
+    // if(document.querySelector('[name="ingredient-3"]').value){
+    //     newDrink.recipe.ingredients
+    // }
+    if(document.getElementById('yes-mocktail').checked){
+       newDrink.mocktail = {
+        "ingredient-1": document.querySelector('[name="mocktail-ingredient-1"]').value,
+        "ingredient-2": document.querySelector('[name="mocktail-ingredient-2"]').value,
+        "ingredient-3": document.querySelector('[name="mocktail-ingredient-3"]').value
+       }
+      }
 
     fetch('http://localhost:3000/drinks', {
         method: 'POST',
