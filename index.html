@@ -21,32 +21,141 @@
   </div>
 
   <div class="container">
-    <form class="add-toy-form">
-      <h3>Create a toy!</h3>
+    <h3>Want more Drinks? Add some here!</h3>
 
+    <form id="add-drink-intro-form" class="add-drink-form">
+      <h4>What drink do you want to add?</h4>
       <input
         type="text"
         name="name"
         value=""
-        placeholder="Enter a toy's name..."
+        placeholder="Drink Name"
         class="input-text"
+        required
       />
       <br />
       <input
         type="text"
         name="image"
         value=""
-        placeholder="Enter a toy's image URL..."
+        placeholder="Drink Image URL"
+        class="input-text"
+        required
+      />
+      <br />
+      <input
+      type="submit"
+      name="submit"
+      value="Next"
+      class="submit"
+    />
+  </form>
+  <form hidden id="add-drink-ingredients-form" class="add-drink-form">
+    <h4>Add ingredients for drink</h4>
+      <input
+        type="text"
+        name="ingredient-1"
+        value=""
+        placeholder="First ingredient"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="ingredient-2"
+        value=""
+        placeholder="Second ingredient"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="ingredient-3"
+        value=""
+        placeholder="Third ingredient"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="ingredient-4"
+        value=""
+        placeholder="Fourth ingredient"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="ingredient-5"
+        value=""
+        placeholder="Fifth ingredient"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="ingredient-6"
+        value=""
+        placeholder="Sixth ingredient"
         class="input-text"
       />
       <br />
       <input
         type="submit"
         name="submit"
-        value="Create Toy"
+        value="Next"
         class="submit"
       />
     </form>
+    <form hidden id="add-drink-instructions-form" class="add-drink-form">
+      <h4>Add steps to make drink</h4>
+      <input
+        type="text"
+        name="instruction-1"
+        value=""
+        placeholder="First Step"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="instruction-2"
+        value=""
+        placeholder="Second Step"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="instruction-3"
+        value=""
+        placeholder="Third Step"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="instruction-4"
+        value=""
+        placeholder="Fourth Step"
+        class="input-text"
+      />
+      <br />
+      <input
+        type="text"
+        name="instruction-5"
+        value=""
+        placeholder="Fifth Step"
+        class="input-text"
+      />
+      <br />
+      <input
+      type="submit"
+      name="submit"
+      value="Add Drink"
+      class="submit"
+    />
+  </form>
   </div>
   <p style="text-align:center">
     Andy needs your help! <button id="new-toy-btn">Add a new toy!</button>
