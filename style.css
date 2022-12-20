@@ -150,6 +150,12 @@ body{
     font-weight: bolder;
   }
 
+  #menu-footer {
+    color: rgb(38, 38, 38);
+    font-weight:lighter;
+    font-size: small;
+  }
+
   #display-menu{
     display: flex;
   }
@@ -181,4 +187,7 @@ body{
     padding: 1rem;
     max-width: 25rem;
   }
-
+ 
+  #mocktail-info{
+    margin-top: 3rem;
+  }
