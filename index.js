@@ -14,6 +14,11 @@ function loadDrinks(drinks){
     let drinkDisplay = document.createElement('div');
     let displayMenu = document.getElementById('display-menu');
 
+    let menuHeader = document.createElement('tr');
+        menuHeader.innerHTML = "Drink Menu"
+        menuHeader.setAttribute('id', 'menu-header');
+        sideMenu.prepend(menuHeader);
+
     drinks.forEach(drink=> {
         makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu);
     });
@@ -29,6 +34,7 @@ function makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu){
         drinkName.setAttribute('hidden', true);
         drinkName.setAttribute('class', 'drink-name');
         drinkName.innerHTML = drink.name;
+        mocktailable(drink, drinkName);
 
         let drinkPic = document.createElement('img');
         drinkPic.src = drink.image;
@@ -42,6 +48,8 @@ function makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu){
         let sideMenuItem = document.createElement('tr');
         sideMenuItem.innerHTML = drink.name;
         sideMenu.appendChild(sideMenuItem);
+        mocktailable(drink, sideMenuItem);
+
         sideMenuItem.addEventListener('click', ()=>{
             drinkDisplay.textContent ='';
             createDrinkDisplay(drinkDisplay, displayMenu, drink);
@@ -58,7 +66,8 @@ function makeADrink(drink, drinkMenu, sideMenu, drinkDisplay, displayMenu){
         drinkCard.addEventListener('click', ()=>{
             drinkMenu.textContent='';
             displayMenu.textContent='';
-            createSideMenu(sideMenu, displayMenu);
+            drinkDisplay.textContent='';
+            displayMenu.append(sideMenu);
             createDrinkDisplay(drinkDisplay, displayMenu, drink);
         })
 }
@@ -102,26 +111,19 @@ function createDrinks(drinks, drinkMenu, sideMenu, drinkDisplay, displayMenu){
         e.preventDefault();
         drinkIngredientsForm.setAttribute('hidden', true);
         drinkInstructionsForm.setAttribute('hidden', true)
-        addDrinksButton.removeAttribute('hidden');
-        wantMoreDrinksHeader.removeAttribute('hidden');
         addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu);
         alert('Great! Your drink has been added!');
         loadDrinks(drinks);
+        let responsible = document.getElementById('responsible');
+        responsible.removeAttribute('hidden');
     })
-}
-
-function createSideMenu(sideMenu, displayMenu){
-    let menuHeader = document.createElement('tr');
-    menuHeader.innerHTML = "Drink Menu"
-    menuHeader.setAttribute('id', 'menu-header');
-    sideMenu.prepend(menuHeader);
-    displayMenu.append(sideMenu);
 }
 
 function createDrinkDisplay(drinkDisplay, displayMenu, drink){
     let displayName = document.createElement('h1');
     displayName.innerHTML = drink.name;
     displayName.setAttribute('class', 'display-names');
+    mocktailable(drink, displayName);
 
     let displayPic = document.createElement('img');
     displayPic.src = drink.image;
@@ -243,7 +245,7 @@ function addDrink(drinkMenu, sideMenu, drinkDisplay, displayMenu){
     })
     .then(resp => resp.json())
     .then(newDrink => {
-        loadNewDrink(drinkDisplay,displayMenu, newDrink);
+        makeADrink(newDrink, drinkMenu, sideMenu, drinkDisplay, displayMenu);
     })
 }
 
@@ -257,7 +259,8 @@ function mocktailSelector(drink, drinkDisplay, mockDiv){
     })
 }
 
-function loadNewDrink(drinkDisplay,displayMenu, newDrink){
-    createDrinkDisplay(drinkDisplay,displayMenu, newDrink);
-    displayMenu.textContent='';
+function mocktailable(drink, name){
+    if(drink.mocktail){
+       name.innerHTML = `${drink.name}` + `*`;
+    }
 }
