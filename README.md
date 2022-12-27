@@ -6,6 +6,8 @@ This project implements HTML to structure the website, JavaScript to create the 
 
 The purpose of this website is to display drinks in an interactive display, and allow users to select a drink to view the recipe, as well as add a drink and associated recipe to the website. 
 
+![menu]("C:\Users\eliza\OneDrive\Pictures\Screenshot 2022-12-27 160159.png")
+
 When a user first enters the website, they will see the interactive drink menu, which is postioned below an 'Add a new drink!' button. The drink menu shows images of drinks in a grid pattern. When a user hovers over a particular drink image, the name of the drink appears, offering more clarity as to which drink they are selecting. The user can select a drink by clicking on the cooresponding drink picture. In doing this, the page is cleared and a left side menu appears listing the drinks, in addition to the specific drink that was selected being pulled up on the right side of the page. The drink display shows the drink name, a larger image of the drink, and the recipe below that (listed as ingredients then mixing steps).  
 
 Additonally, some drinks have an alternate for the alcoholic ingredients which can be viewed by clicking the 'Mocktail Subsitutes' button displayed below the drink recipe. If the user decides to no longer view the mocktail ingredients, they can hide them by clicking the cooresponging 'Hide Mocktail Subsitutes' button. Futhermore the drinks that have these non-alcoholic alternatives are denoted by a * after the name, as seen in the interactive menu, side menu, and display name. The wesbite also has a note at the top of the page indicating to users what the * represents. 

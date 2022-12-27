@@ -129,6 +129,28 @@
       "mocktail": {
         "ingredient-1": "1/2 ounces of white grape juice"
       }
+    },
+    {
+      "name": "Pina Colada",
+      "image": "https://www.liquor.com/thmb/hmc01qQqlwI0H1od1Qw0me4LEjI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__02__13090826__pina-colada-720x720-recipe-253f1752769447f6998afd2b9469c24e.jpg",
+      "recipe": {
+        "ingredients": {
+          "1": "2 ounces light rum",
+          "2": "1 1/2 ounces cream of coconut",
+          "3": "1 1/2 ounces pineapple juice",
+          "4": "1/2 ounce lime juice, freshly squeezed",
+          "5": "Garnish with pineapple wedge"
+        },
+        "instructions": {
+          "3": "Garnish with a pineapple wedge.",
+          "Step 1": "Add the rum, cream of coconut and pineapple and lime juices to a shaker with ice and shake vigorously for 20 to 30 seconds.",
+          "Step 2": "Strain into a chilled Hurricane glass over pebble ice."
+        }
+      },
+      "mocktail": {
+        "ingredient-1": "2 ounces of white grape juice"
+      },
+      "id": 7
     }
   ]
 }
