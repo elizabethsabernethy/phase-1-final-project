@@ -12,4 +12,8 @@ Additonally, some drinks have an alternate for the alcoholic ingredients which c
 
 The final feature of the website allows a user to add a drink if they so choose; which can be achieved by pressing the 'Add a new drink!' button. Once clicked, the page is cleared expect for the form in which the user can add a drink. The first section prompts the user for a drink name, and image url, as well as a selection of whether or not the drink is mocktailable (meaning it has non-alcoholic subsitutes). Once this section is complete and the user selects the next button, an ingredients form will appear allowing the user to add up to 6 ingredients. Following this, if the user selected 'Yes' to the mocktailable question, a form for adding up to 3 mocktail ingredients can be added. If 'No' was selected instead, it will take the user directly to add up to 5 steps for mixing the drink, bypassing the mockatil ingredients form. The user can then add the drink to the database, and the new drink will appear in the interactive menu with the others. When the newly altered menu appears, the user should see that the add drink button has been hidden, allowing only one drink to be added at a time. The other website features should operate as normal with the exception of the 'Add a new drink!' form. If a user wishes to add a new drink after already adding one, the page will need to be refreshed. 
 
+## Original Database Image/ Recipe Sources
+### Tom Collins
+Image via [liquor.com](https://www.liquor.com/thmb/tgWPQqsyM7-TFAA7vw_0h7aZszY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__04__03080950__Tom-Collins-720x720-recipe-e87bf7954cdb4438b5e8d21f568cdd6f.jpg)
+
 
