@@ -129,29 +129,6 @@
       "mocktail": {
         "ingredient-1": "1/2 ounces of white grape juice"
       }
-    },
-    {
-      "name": "Layden Love",
-      "image": "https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg",
-      "recipe": {
-        "ingredients": {
-          "1": "Vodka",
-          "2": "esspresso",
-          "3": "baileys",
-          "4": "coloua"
-        },
-        "instructions": {
-          "3": "pour",
-          "4": "add cookie",
-          "Step 1": "add stuff",
-          "Step 2": "mix stuff"
-        }
-      },
-      "mocktail": {
-        "ingredient-1": "starbucks ice coffe mix",
-        "ingredient-2": "coconut milk"
-      },
-      "id": 7
     }
   ]
 }
