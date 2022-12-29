@@ -30,7 +30,11 @@ Once clicked, the page is cleared expect for the form in which the user can add 
 
 ![new drink selection gif](./newdrink.gif)
 
-## Original Database Image/ Recipe Sources
+## Image and Recipe Sources
+
+### Drink City Silhouette
+[clipart-library.com](http://clipart-library.com/images_k/city-silhouette-png/city-silhouette-png-4.png)
+
 ### Tom Collins
 
 - [Recipe source](https://www.liquor.com/recipes/tom-collins-2/)
