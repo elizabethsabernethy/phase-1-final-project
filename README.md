@@ -10,7 +10,7 @@ The purpose of this website is to display drinks in an interactive display, and 
 
 When a user first enters the website, they will see the interactive drink menu, which is postioned below an 'Add a new drink!' button. The drink menu shows images of drinks in a grid pattern. When a user hovers over a particular drink image, the name of the drink appears, offering more clarity as to which drink they are selecting. 
 
-![gif](https://i.imgur.com/EAea2oW.gifv)
+![gif](https://i.imgur.com/EAea2oW.gif)
 
 The user can select a drink by clicking on the cooresponding drink picture. In doing this, the page is cleared and a left side menu appears listing the drinks, in addition to the specific drink that was selected being pulled up on the right side of the page. The drink display shows the drink name, a larger image of the drink, and the recipe below that (listed as ingredients then mixing steps).  
 
